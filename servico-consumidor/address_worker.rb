@@ -1,6 +1,6 @@
 require 'sneakers'
 
-class AdressWorker
+class AddressWorker
     include Sneakers::Worker
 
     Sneakers.configure  :heartbeat => 30,
@@ -12,7 +12,7 @@ class AdressWorker
     from_queue "dashboard.restaurants"
     
     def work(raw_restaurant)
-      print "mensagem recebida ========================="
+      print raw_restaurant
       ack! 
     end
 end
