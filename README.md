@@ -25,4 +25,6 @@ O projeto se consitui de 4 serviços, um banco de dados para o serviço produtor
 
 Os endpoints chamados são recebidos pelo serviço produtor, que envia as informações para a fila para que o serviço consumidor leia o endereço consumindo a mesma, e preencha os dados de latitude e longitude do pedido consultando um api externa.
 
+A url do management do RabbitMQ é http://localhost:15672
+
 Olhar também o README dos projetos [Consumidor](https://github.com/Perrut/desafio-get-ninjas-backend/tree/master/servico-consumidor) e [Produtor](https://github.com/Perrut/desafio-get-ninjas-backend/tree/master/servico-produtor) para mais informarções.
