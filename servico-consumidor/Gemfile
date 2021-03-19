@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+# External requests
+gem 'httparty', '0.18.1'
 # RabbitMQ consumer support
 gem 'sneakers'
 # RabbitMQ support

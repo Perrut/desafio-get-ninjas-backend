@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Message < ApplicationRecord
-    after_create { publish_to_dashboard }  
+    after_create { publish_to_dashboard }
     
     private  
     

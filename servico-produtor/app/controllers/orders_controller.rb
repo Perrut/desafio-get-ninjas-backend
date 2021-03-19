@@ -41,13 +41,17 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: "Order was successfully updated." }
-        format.json { render :show, status: :ok, location: @order }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+    Order.transaction do
+      respond_to do |format|
+        if @order.user_info.update(user_info_params) && 
+           @order.address_attribute.update(address_attributes_params) &&
+           @order.request_info.update(request_info_params)
+          format.html { redirect_to @order, notice: "Order was successfully updated." }
+          format.json { render :show, status: :ok, location: @order }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -86,7 +90,9 @@ class OrdersController < ApplicationController
         :neighborhood,
         :street,
         :uf,
-        :zip_code
+        :zip_code,
+        :lat,
+        :lng
       )
     end
 

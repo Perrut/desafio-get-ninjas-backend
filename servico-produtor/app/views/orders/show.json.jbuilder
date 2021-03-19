@@ -1,3 +1,5 @@
+json.id @order.id
+
 json.user_info do
     json.phone @order.user_info.phone
     json.name @order.user_info.name
