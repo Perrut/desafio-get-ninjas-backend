@@ -1,24 +1,10 @@
-# README
+# Serviço Produtor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este serviço é o que capta os objetos que representam pedidos e que assim que o salvam na base, o enviam para a fila, para que o serviço consumidor consiga obter os dados de latitude/longitude relativos ao endereço do pedido.
 
-Things you may want to cover:
+Classes/arquivos que desenvolvi para o desafio
 
-* Ruby version
+Controllers e Views de order
+Modelos: address_attribute, request_info e user_info
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Serviço de comunicação com o RabbitMQ: Publisher.rb
