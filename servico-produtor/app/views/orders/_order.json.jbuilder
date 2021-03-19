@@ -12,6 +12,8 @@ json.address_attributes do
     json.street order.address_attribute.street
     json.uf order.address_attribute.uf
     json.zip_code order.address_attribute.zip_code
+    json.lat order.address_attribute.lat
+    json.lng order.address_attribute.lng
 end
 
 json.request_info do

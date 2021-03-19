@@ -2,7 +2,7 @@ require 'sneakers'
 require 'httparty'
 require 'json'
 
-class AddressWorker
+class OrderWorker
     include Sneakers::Worker
 
     Sneakers.configure  :heartbeat => 30,
@@ -11,13 +11,15 @@ class AddressWorker
                     :exchange => 'sneakers',
                     :exchange_type => :direct
 
-    from_queue "dashboard.restaurants"
+    from_queue "consumer.orders"
     
-    def work(raw_restaurant)
-      restaurant = JSON.parse(raw_restaurant)
+    def work(raw_order)
+      order = JSON.parse(raw_order)
+      order["address_attributes"]["lat"] = "lat"
+      order["address_attributes"]["lng"] = "lng"
 
       params = {
-        body: JSON.generate(restaurant),
+        body: JSON.generate(order),
         headers: { 
            "Accept" => "application/json",
            "Content-Type" => "application/json"
@@ -26,9 +28,7 @@ class AddressWorker
 
       params[:debug_output] = STDOUT
 
-      HTTParty.put("http://producer:3000/orders/#{restaurant["id"]}", params)
-
-      print raw_restaurant
+      HTTParty.put("http://producer:3000/orders/#{order["id"]}", params)
       ack! 
     end
 end

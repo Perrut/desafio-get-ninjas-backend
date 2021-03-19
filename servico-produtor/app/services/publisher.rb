@@ -3,8 +3,12 @@ require 'bunny'
 class Publisher
   class << self
     def publish(exchange, message = {})
-      x = channel.fanout("crawler.#{exchange}")
+      x = channel.fanout("producer.#{exchange}")
       x.publish(message.to_json)
+    end
+
+    def create_fanout(exchange)
+      channel.fanout("producer.#{exchange}")
     end
 
     def channel

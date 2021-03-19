@@ -19,6 +19,10 @@ class OrdersController < ApplicationController
   def edit
   end
 
+  def start_queue
+    Order.new.start_queue
+  end
+
   # POST /orders or /orders.json
   def create
     Order.transaction do
@@ -29,6 +33,7 @@ class OrdersController < ApplicationController
 
       respond_to do |format|
         if @order.save
+          @order.publish_to_dashboard
           format.html { redirect_to @order, notice: "Order was successfully created." }
           format.json { render :show, status: :created, location: @order }
         else
