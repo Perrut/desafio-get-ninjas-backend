@@ -16,6 +16,6 @@ O formato de objeto a ser enviado para a API é exatamente o mesmo proposto na p
 
 Há uma collection do Postman de exemplo caso queira se utilizar.
 
-Como o formato de geração do projeto Rails não foi feito com a flag --api, deve se passar nos request o header `Accept` com o valor `application/json` para não se receber as respostas em html.
+Como o formato de geração do projeto Rails não foi feito com a flag --api, deve se passar nos requests o header `Accept` com o valor `application/json` para não se receber as respostas em  (a collection do Postman já tem em todos eles).
 
-Olhar também o README dos projetos Consumidor e Produtor para mais informarções.
+Olhar também o README dos projetos [Consumidor](https://github.com/Perrut/desafio-get-ninjas-backend/tree/master/servico-consumidor) e [Produtor](https://github.com/Perrut/desafio-get-ninjas-backend/tree/master/servico-produtor) para mais informarções.
