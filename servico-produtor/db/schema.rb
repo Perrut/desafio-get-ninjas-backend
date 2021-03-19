@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 2021_03_19_132717) do
     t.index ["order_id"], name: "index_address_attributes_on_order_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
