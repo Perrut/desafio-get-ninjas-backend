@@ -1,24 +1,10 @@
-# README
+# Serviço Consumidor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este serviço roda um job que consome dados da fila para obter dados geográficos (latitude/longitude) de um dado endereço fornecido no parâmetro.
 
-Things you may want to cover:
+A API utilizada para a busca das informações é a [PositionStack](https://positionstack.com/). Foi escolhida por fornecer o serviço de forma gratuita.
 
-* Ruby version
+Classes/arquivos que eu desenvolvi para a execução do projeto do desafio.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- OrderWorker: processo que se comunica com a fila do RabbitMQ e consome as informações para obter os dados de endereço e enviar para o serviço de pedidos
+- RabbitMQ task: responsável pela criação da fila que se alimenta dos dados produzidos pelo serviço consumidor
