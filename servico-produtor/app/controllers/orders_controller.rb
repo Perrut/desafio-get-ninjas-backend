@@ -21,15 +21,20 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    Order.transaction do
+      @order = Order.create
+      user_info = @order.create_user_info(user_info_params)
+      address_attributes = @order.create_address_attribute(address_attributes_params)
+      request_info = @order.create_request_info(request_info_params)
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @order.save
+          format.html { redirect_to @order, notice: "Order was successfully created." }
+          format.json { render :show, status: :created, location: @order }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -64,6 +69,32 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name)
+      user_info_params.merge(address_attributes_params).merge(request_info_params)
+    end
+
+    def user_info_params
+      params.require(:user_info).permit(
+        :phone,
+        :name,
+        :email
+      )
+    end
+
+    def address_attributes_params
+      params.require(:address_attributes).permit(
+        :city,
+        :neighborhood,
+        :street,
+        :uf,
+        :zip_code
+      )
+    end
+
+    def request_info_params
+      params.require(:request_info).permit(
+        :question1,
+        :question2,
+        :question3
+      )
     end
 end
