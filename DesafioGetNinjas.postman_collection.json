@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "4c18dc71-aaba-4323-86a6-3b3096fbc7c0",
+		"name": "DesafioGetNinjas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar todos os pedidos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar pedido por id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/orders/82",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"82"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir um pedido por id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/orders/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar pedido por id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 81,\n    \"user_info\": {\n        \"phone\": \"(11) 98765-4321\",\n        \"name\": \"João da Silva\",\n        \"email\": \"joao_silva@exemplo.com\"\n    },\n    \"address_attributes\": {\n        \"city\": \"São Paulo\",\n        \"neighborhood\": \"Jardim Paulista\",\n        \"street\": \"Avenida São Gabriel\",\n        \"uf\": \"SP\",\n        \"zip_code\": \"01435-001\",\n        \"lat\": \"-23.566634\",\n        \"lng\": \"-46.665608\"\n    },\n    \"request_info\": {\n        \"question1\": \"answer1\",\n        \"question2\": \"answer2\",\n        \"question3\": \"answer3\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/orders/81",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"81"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar um pedido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 81,\n    \"user_info\": {\n        \"phone\": \"(11) 98765-4321\",\n        \"name\": \"João da Silva\",\n        \"email\": \"joao_silva@exemplo.com\"\n    },\n    \"address_attributes\": {\n        \"city\": \"São Paulo\",\n        \"neighborhood\": \"Jardim Paulista\",\n        \"street\": \"Avenida São Gabriel\",\n        \"uf\": \"SP\",\n        \"zip_code\": \"01435-001\",\n        \"lat\": \"-23.566634\",\n        \"lng\": \"-46.665608\"\n    },\n    \"request_info\": {\n        \"question1\": \"answer1\",\n        \"question2\": \"answer2\",\n        \"question3\": \"answer3\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

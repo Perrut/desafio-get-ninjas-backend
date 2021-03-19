@@ -15,3 +15,7 @@ Repositório com uma proposta de solução para o desafio proposto em https://gi
 O formato de objeto a ser enviado para a API é exatamente o mesmo proposto na página do desafio.
 
 Há uma collection do Postman de exemplo caso queira se utilizar.
+
+Como o formato de geração do projeto Rails não foi feito com a flag --api, deve se passar nos request o header `Accept` com o valor `application/json` para não se receber as respostas em html.
+
+Olhar também o README dos projetos Consumidor e Produtor para mais informarções.
