@@ -1,5 +1,5 @@
 # Instala as Gems
 bundle check || bundle install
  
-# Roda nosso servidor
-bundle exec puma -C config/puma.rb
+bundle exec rake rabbitmq:setup
+bundle exec sneakers work OrderWorker --require app/workers/order_worker.rb
