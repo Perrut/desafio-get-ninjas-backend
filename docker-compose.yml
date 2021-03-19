@@ -18,7 +18,7 @@ services:
       - "5672:5672"
       - "15672:15672"
 
-  app:
+  producer:
     depends_on:
       - "postgres"
       - "my-rabbit"
@@ -29,7 +29,20 @@ services:
     volumes:
       - ./servico-produtor:/produtor
       - gems:/gems
+
+  consumer:
+    depends_on:
+      - "postgres"
+      - "my-rabbit"
+    build: ./servico-consumidor
+    command: bash start.sh
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./servico-consumidor:/consumidor
+      - consumer-gems:/gems
  
 volumes:
   postgres:
   gems:
+  consumer-gems:
