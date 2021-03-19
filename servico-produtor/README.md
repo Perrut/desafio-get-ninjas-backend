@@ -4,7 +4,6 @@ Este serviço é o que capta os objetos que representam pedidos e que assim que 
 
 Classes/arquivos que desenvolvi para o desafio
 
-[Controllers](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/controllers/orders_controller.rb) e [Views](https://github.com/Perrut/desafio-get-ninjas-backend/tree/master/servico-produtor/app/views/orders) (apenas JSON's) de [Order](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/order.rb)
-Modelos: [AddressAttribute](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/address_attribute.rb), [RequestInfo](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/user_info.rb) e [UserInfo](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/user_info.rb)
-
-Serviço de comunicação com o RabbitMQ: [Publisher](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/services/publisher.rb)
+- [Controllers](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/controllers/orders_controller.rb) e [Views](https://github.com/Perrut/desafio-get-ninjas-backend/tree/master/servico-produtor/app/views/orders) (apenas JSON's) de [Order](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/order.rb)
+- Modelos: [AddressAttribute](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/address_attribute.rb), [RequestInfo](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/user_info.rb) e [UserInfo](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/models/user_info.rb)
+- Serviço de comunicação com o RabbitMQ: [Publisher](https://github.com/Perrut/desafio-get-ninjas-backend/blob/master/servico-produtor/app/services/publisher.rb)
